@@ -1,0 +1,667 @@
+{
+	"info": {
+		"_postman_id": "d810c10b-31b8-47f3-8c0b-54de597fa64f",
+		"name": "Book",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "19317350"
+	},
+	"item": [
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "Reserve a book",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://simple-books-api.glitch.me/status"
+					},
+					"response": []
+				},
+				{
+					"name": "List of books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Bookurl}}/books"
+					},
+					"response": []
+				},
+				{
+					"name": "Query param",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Bookurl}}/books?type=fiction&limit=1",
+							"host": [
+								"{{Bookurl}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "fiction"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "single book",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Bookurl}}/books/:bookId",
+							"host": [
+								"{{Bookurl}}"
+							],
+							"path": [
+								"books",
+								":bookId"
+							],
+							"variable": [
+								{
+									"key": "bookId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post clients",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"clientName\": \"Postma\",\r\n   \"clientEmail\": \"valentin@example.co.uk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Bookurl}}/api-clients/"
+					},
+					"response": []
+				},
+				{
+					"name": "orders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookId\": 1,\r\n  \"customerName\": \"John {{$randomLastName}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Bookurl}}/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Bookurl}}/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Get existing orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Bookurl}}/orders/:orderid",
+							"host": [
+								"{{Bookurl}}"
+							],
+							"path": [
+								"orders",
+								":orderid"
+							],
+							"variable": [
+								{
+									"key": "orderid",
+									"value": "axp6B3wRJGn6yiXb3TA6v"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerName\": \"{{$randomFirstName}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Bookurl}}/orders/:orderId",
+							"host": [
+								"{{Bookurl}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "axp6B3wRJGn6yiXb3TA6v"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Bookurl}}/orders/:orderId",
+							"host": [
+								"{{Bookurl}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "axp6B3wRJGn6yiXb3TA6v"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get deleted record",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Bookurl}}/orders/:orderId",
+							"host": [
+								"{{Bookurl}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "axp6B3wRJGn6yiXb3TA6v"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "{{accesstoken}}"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{Bookurl}}"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{Bookurl}}/status"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Bookurl}}/books?type=non-fiction",
+					"host": [
+						"{{Bookurl}}"
+					],
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "non-fiction"
+						},
+						{
+							"key": "limit",
+							"value": "19",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{Bookurl}}/Books/5"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Bookurl}}/books?type=fiction&limit=2",
+					"host": [
+						"{{Bookurl}}"
+					],
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "fiction"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Req",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Bookurl}}/books/:id",
+					"host": [
+						"{{Bookurl}}"
+					],
+					"path": [
+						"books",
+						":id"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "fiction",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Req Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{accesstoken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Bookurl}}/orders/:orderid",
+					"host": [
+						"{{Bookurl}}"
+					],
+					"path": [
+						"orders",
+						":orderid"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "fiction",
+							"disabled": true
+						},
+						{
+							"key": "clientEmail",
+							"value": "priyamca218@example.com",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "orderid",
+							"value": "92dUtRC49xmTHgBE8m_Ge"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchcommand",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{accesstoken}}"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  \r\n  {\r\n  \r\n    \"customerName\": \"Pablo {{$randomLastName}}\"\r\n  }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Bookurl}}/orders/:orderid",
+					"host": [
+						"{{Bookurl}}"
+					],
+					"path": [
+						"orders",
+						":orderid"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "fiction",
+							"disabled": true
+						},
+						{
+							"key": "clientEmail",
+							"value": "priyamca218@example.com",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "orderid",
+							"value": "92dUtRC49xmTHgBE8m_Ge"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchcommand Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{accesstoken}}"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  \r\n  {\r\n  \r\n    \"customerName\": \"Pablo {{$randomLastName}}\"\r\n  }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Bookurl}}/orders/:orderid",
+					"host": [
+						"{{Bookurl}}"
+					],
+					"path": [
+						"orders",
+						":orderid"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "fiction",
+							"disabled": true
+						},
+						{
+							"key": "clientEmail",
+							"value": "priyamca218@example.com",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "orderid",
+							"value": "92dUtRC49xmTHgBE8m_Ge"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Req Copy 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{accesstoken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Bookurl}}/orders/",
+					"host": [
+						"{{Bookurl}}"
+					],
+					"path": [
+						"orders",
+						""
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "fiction",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reg client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"clientName\": \"Postman\",\r\n   \"clientEmail\": \"priyamca218@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Bookurl}}/api-clients/",
+					"host": [
+						"{{Bookurl}}"
+					],
+					"path": [
+						"api-clients",
+						""
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "fiction",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{accesstoken}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n  \"bookId\": 6,\r\n  \"customerName\": \"{{$randomFullName}}\"\r\n\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Bookurl}}/orders",
+					"host": [
+						"{{Bookurl}}"
+					],
+					"path": [
+						"orders"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "fiction",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Bookurl",
+			"value": "https://simple-books-api.glitch.me"
+		},
+		{
+			"key": "accesstoken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
