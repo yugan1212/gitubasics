@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "b594ab00-18aa-4af5-9f85-6e6eddf0db56",
+		"name": "EA.PricingService.WebApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pricing",
+			"item": [
+				{
+					"name": "Get Account Application Fees",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"})\r",
+									"pm.test(\"Valid account id fetched for Integral system\", function() {\r",
+									"    pm.response.to.not.be.error;\r",
+									"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"Expected_AccountId\"));\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-landmark-caller-id",
+								"value": "{{callerId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RootUrl}}/account-application-fees",
+							"host": [
+								"{{RootUrl}}"
+							],
+							"path": [
+								"account-application-fees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Application Prices",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"})\r",
+									"pm.test(\"Valid account id fetched for Integral system\", function() {\r",
+									"    pm.response.to.not.be.error;\r",
+									"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"Expected_AccountId\"));\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-landmark-caller-id",
+								"value": "{{callerId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountId\": \"{{accountId}}\",\r\n  \"applicationId\":\"{{applicationId}}\",\r\n  \"productIds\":null,\r\n  \"applicationGroupIds\": null,\r\n  \"memberAccountId\": null,\r\n  \"priceDate\": null,\r\n  \"runtimeVariables\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RootUrl}}/account-application-prices",
+							"host": [
+								"{{RootUrl}}"
+							],
+							"path": [
+								"account-application-prices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Application Prices - Single",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"})\r",
+									"pm.test(\"Valid account id fetched for Integral system\", function() {\r",
+									"    pm.response.to.not.be.error;\r",
+									"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"Expected_AccountId\"));\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-landmark-caller-id",
+								"value": "{{callerId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountId\": \"{{accountId}}\",\r\n  \"applicationId\":\"{{applicationId}}\",\r\n  \"productIds\": [\"{{AccountApplicationPriceSingleProduct}}\"],\r\n  \"applicationGroupIds\": null,\r\n  \"memberAccountId\": null,\r\n  \"priceDate\": null,\r\n  \"runtimeVariables\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RootUrl}}/account-application-prices",
+							"host": [
+								"{{RootUrl}}"
+							],
+							"path": [
+								"account-application-prices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Order Fees - Single",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"})\r",
+									"pm.test(\"Valid account id fetched for Integral system\", function() {\r",
+									"    pm.response.to.not.be.error;\r",
+									"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"Expected_AccountId\"));\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-landmark-caller-id",
+								"value": "{{callerId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountId\": \"{{accountId}}\",\r\n  \"applicationId\":\"{{applicationId}}\",\r\n  \"productIds\": [\"{{FeeAccountOrderFeeSingleProduct}}\"],\r\n  \"optionalProductFeeIds\": null,\r\n  \"pricingAdjustmentId\": null,\r\n  \"memberAccountId\": null,\r\n  \"priceDate\": null,\r\n  \"runtimeVariables\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RootUrl}}/account-order-fees",
+							"host": [
+								"{{RootUrl}}"
+							],
+							"path": [
+								"account-order-fees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Order Fees - Single Bundle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"})\r",
+									"pm.test(\"Valid account id fetched for Integral system\", function() {\r",
+									"    pm.response.to.not.be.error;\r",
+									"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"Expected_AccountId\"));\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-landmark-caller-id",
+								"value": "{{callerId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountId\": \"{{accountId}}\",\r\n  \"applicationId\":\"{{applicationId}}\",\r\n  \"productIds\": [\"{{FeeAccountOrderFeeBundleProduct}}\"],\r\n  \"optionalProductFeeIds\": null,\r\n  \"pricingAdjustmentId\": null,\r\n  \"memberAccountId\": null,\r\n  \"priceDate\": null,\r\n  \"runtimeVariables\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RootUrl}}/account-order-fees",
+							"host": [
+								"{{RootUrl}}"
+							],
+							"path": [
+								"account-order-fees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Application Prices - Bundle No Optional",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"})\r",
+									"pm.test(\"Valid account id fetched for Integral system\", function() {\r",
+									"    pm.response.to.not.be.error;\r",
+									"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"Expected_AccountId\"));\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-landmark-caller-id",
+								"value": "{{callerId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountId\": \"{{accountId}}\",\r\n  \"applicationId\":\"{{applicationId}}\",\r\n  \"productIds\": [\"{{AccountApplicationPriceBundleNoOptionalProduct}}\"],\r\n  \"applicationGroupIds\": null,\r\n  \"memberAccountId\": null,\r\n  \"priceDate\": null,\r\n  \"runtimeVariables\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RootUrl}}/account-application-prices",
+							"host": [
+								"{{RootUrl}}"
+							],
+							"path": [
+								"account-application-prices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Application Prices - Bundle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"})\r",
+									"pm.test(\"Valid account id fetched for Integral system\", function() {\r",
+									"    pm.response.to.not.be.error;\r",
+									"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"Expected_AccountId\"));\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-landmark-caller-id",
+								"value": "{{callerId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountId\": \"{{accountId}}\",\r\n  \"applicationId\":\"{{applicationId}}\",\r\n  \"productIds\": [\"{{AccountApplicationPriceBundleProduct}}\"],\r\n  \"applicationGroupIds\": null,\r\n  \"memberAccountId\": null,\r\n  \"priceDate\": null,\r\n  \"runtimeVariables\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RootUrl}}/account-application-prices",
+							"host": [
+								"{{RootUrl}}"
+							],
+							"path": [
+								"account-application-prices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Application Group Prices",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"})\r",
+									"pm.test(\"Valid account id fetched for Integral system\", function() {\r",
+									"    pm.response.to.not.be.error;\r",
+									"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"Expected_AccountId\"));\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-landmark-caller-id",
+								"value": "{{callerId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RootUrl}}/account-application-group-prices?accountId={{accountId}}&applicationId={{applicationId}}",
+							"host": [
+								"{{RootUrl}}"
+							],
+							"path": [
+								"account-application-group-prices"
+							],
+							"query": [
+								{
+									"key": "accountId",
+									"value": "{{accountId}}"
+								},
+								{
+									"key": "applicationId",
+									"value": "{{applicationId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "clientId",
+				"value": "api://eng-apihub-bvt-postman-getaccesstoken",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "https://login.microsoftonline.com/2b7f516e-1b14-479e-8d65-ac50c9127e5d/oauth2/authorize?resource={{ResourceAppIdUri}}",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "https://oauth.pstmn.io/v1/callback",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "implicit",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
